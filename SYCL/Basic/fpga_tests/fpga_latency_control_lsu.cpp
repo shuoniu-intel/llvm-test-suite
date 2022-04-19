@@ -42,13 +42,13 @@ int test_latency_control(queue Queue) {
 
         float value = PrefetchingLSU::load(
             in_ptr, ext::oneapi::experimental::properties(
-                        ext::oneapi::experimental::latency_anchor_id<0>));
+                        ext::intel::experimental::latency_anchor_id<0>));
 
         BurstCoalescedLSU::store(
             out_ptr, value,
             ext::oneapi::experimental::properties(
-                ext::oneapi::experimental::latency_constraint<
-                    0, ext::oneapi::experimental::latency_control_type::exact,
+                ext::intel::experimental::latency_constraint<
+                    0, ext::intel::experimental::latency_control_type::exact,
                     5>));
       });
     });
